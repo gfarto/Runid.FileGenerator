@@ -17,9 +17,14 @@ public static class RandomDataGenerator
         return GenerateRandomNumber(minValue, maxValue).ToString();
     }
 
-    public static int GenerateRandomQuantity()
+    public static int GenerateRandomInteger()
     {
         return GenerateRandomNumber(1, 1000);
+    }
+
+    public static int GenerateRandomQuantity()
+    {
+        return GenerateRandomNumber(1, 999);
     }
 
     public static string GenerateRandomDeliveryNumber(string? prefix = "D")
@@ -45,6 +50,12 @@ public static class RandomDataGenerator
     public static string GenerateRandomText()
     {
         return "Random Description " + _random.Next(1, 1000);
+    }
+
+    public static decimal GenerateRandomDecimal(int min = 1, int max = 1000, int decimalPlaces = 2)
+    {
+        double range = _random.NextDouble() * (max - min) + min;
+        return Math.Round((decimal)range, decimalPlaces);
     }
 
     public static DateTime GenerateRandomDate(int maxRangeOfDays = 365, DateType dateType = DateType.Past)
