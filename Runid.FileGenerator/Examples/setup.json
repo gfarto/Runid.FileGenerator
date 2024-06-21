@@ -1,8 +1,9 @@
 {
   "rules": {
-    "DeliveryNumber": "random[int]",
-    "DeliveryDate": "random[date:past]",
-    "Quantity": "random[number]",
+    "DeliveryNumber": "random[deliveryNumber]",
+    "DeliveryDate": "random[date:past:2]",
+    "Quantity": "random[quantity]",
+    "Quantity2": "random[quantity]",
     "Description": "random[text]",
     "MaterialNumber": "file[materials:0]",
     "MaterialDescription": "file[materials:1]",
@@ -10,10 +11,14 @@
     "MaterialDescription2": "file[materials2:1]",
     "BatchNumber": "file[batches:0]",
     "BatchNumber2": "file[batches2:0]",
-    "BatchCreationDate": "random[date:past]",
-    "BatchExpiryDate": "random[date:future]"
+    "BatchCreationDate": "file[batches:1]",
+    "BatchExpiryDate": "file[batches:2]",
+    "PaymentDate": "random[date:any:30]",
+    "Price": "random[decimal:10,1000,2]",
+    "RandomPastDate": "random[date:past:180]",
+    "RandomFutureDate": "random[date:future:720]"
   },
-  "name_convention": "biec_to_ilmsxp-IDB-{date}_{time}_{sequence}.xml",
+  "name_convention": "sap_to_1wxp-IDB-{date}_{time}_{sequence}.xml",
   "date_format": "yyyyMMdd",
   "time_format": "HHmmss"
 }
