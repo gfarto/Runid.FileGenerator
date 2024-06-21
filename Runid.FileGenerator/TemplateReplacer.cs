@@ -6,6 +6,8 @@ public static class TemplateReplacer
 {
     public static string ReplaceKeys(string template, TemplateSetup templateSetup, Dictionary<string, List<string[]>> dataFiles)
     {
+        var usedIndices = new Dictionary<string, int>();
+
         foreach (var rule in templateSetup.Rules)
         {
             string key = rule.Key;
@@ -56,7 +58,19 @@ public static class TemplateReplacer
                             continue;
                         }
 
-                        string randomValue = data[RandomDataGenerator.GenerateRandomNumber() % data.Count][colIndex];
+                        // Use the same index if already used, else generate a new one
+                        int currentIndex;
+                        if (usedIndices.ContainsKey(fileKey))
+                        {
+                            currentIndex = usedIndices[fileKey];
+                        }
+                        else
+                        {
+                            currentIndex = RandomDataGenerator.GenerateRandomNumber() % data.Count;
+                            usedIndices[fileKey] = currentIndex;
+                        }
+
+                        string randomValue = data[currentIndex][colIndex];
                         template = template.Replace($"{{{key}}}", randomValue);
                     }
                 }
