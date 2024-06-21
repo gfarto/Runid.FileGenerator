@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "DeliveryNumber": "random[int]",
+    "DeliveryDate": "random[date:past]",
+    "Quantity": "random[number]",
+    "Description": "random[text]",
+    "MaterialNumber": "file[materials:0]",
+    "MaterialDescription": "file[materials:1]",
+    "MaterialNumber2": "file[materials2:0]",
+    "MaterialDescription2": "file[materials2:1]",
+    "BatchNumber": "file[batches:0]",
+    "BatchNumber2": "file[batches2:0]",
+    "BatchCreationDate": "random[date:past]",
+    "BatchExpiryDate": "random[date:future]"
+  },
+  "name_convention": "biec_to_ilmsxp-IDB-{date}_{time}_{sequence}.xml",
+  "date_format": "yyyyMMdd",
+  "time_format": "HHmmss"
+}

@@ -1,0 +1,18 @@
+<InboundDelivery>
+    <DeliveryNumber>{DeliveryNumber}</DeliveryNumber>
+    <DeliveryDate>{DeliveryDate}</DeliveryDate>
+    <Items>
+        <Item>
+            <Material>{MaterialNumber}</Material>
+            <Description>{MaterialDescription}</Description>
+            <BatchNumber>{BatchNumber}</BatchNumber>
+            <Quantity>{Quantity}</Quantity>
+        </Item>
+        <Item>
+            <Material>{MaterialNumber2}</Material>
+            <Description>{MaterialDescription2}</Description>
+            <BatchNumber>{BatchNumber2}</BatchNumber>
+            <Quantity>{Quantity}</Quantity>
+        </Item>
+    </Items>
+</InboundDelivery>
